@@ -1,0 +1,1 @@
+import{$ as t}from"execa";import{getPlatform as a}from"src/utils/platform";const{isLinux:m}=a();async function n(o="node_modules"){let r="rimraf";m?r=`rimraf(${o})`:r=`rimraf.windows(${o})`;try{await t`${r}`&&console.log("\u5220\u9664\u6210\u529F")}catch(i){console.log(`\u5220\u9664\u5931\u8D25 => ${i}`)}}const u={__proto__:null,rimrafDir:n};export{u as rimrafDir};

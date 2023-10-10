@@ -1,0 +1,37 @@
+{
+  "name": "swell-node-core",
+  "version": "1.0.0",
+  "description": "",
+  "types": "./bin/index.d.ts",
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "build": "unbuild",
+    "build:watch": "unbuild --stub"
+  },
+  "bin": {
+    "snc": "bin/bin.mjs"
+  },
+  "type": "module",
+  "files": [
+    "bin"
+  ],
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/three": "^0.156.0",
+    "chalk": "^5.3.0",
+    "cli-table": "^0.3.11",
+    "commander": "^11.0.0",
+    "execa": "^8.0.1",
+    "ora": "^7.0.1",
+    "three": "^0.156.1",
+    "vite": "^4.4.9",
+    "vitest": "^0.34.4"
+  },
+  "devDependencies": {
+    "@types/cli-table": "^0.3.2",
+    "@types/node": "^20.8.4",
+    "unbuild": "^2.0.0"
+  }
+}
