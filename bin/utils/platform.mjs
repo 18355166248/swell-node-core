@@ -1,12 +1,28 @@
-import jiti from "file:///Users/xmly/Study/code/swell-node-core/node_modules/.pnpm/jiti@1.20.0/node_modules/jiti/lib/index.js";
+import os from 'os';
 
-/** @type {import("/Users/xmly/Study/code/swell-node-core/src/utils/platform")} */
-const _module = jiti(null, {
-  "esmResolve": true,
-  "interopDefault": true,
-  "alias": {
-    "swell-node-core": "/Users/xmly/Study/code/swell-node-core"
+const getPlatform = function() {
+  const platform = os.platform();
+  const params = {
+    isLinux: false,
+    isWindow: false
+  };
+  switch (platform) {
+    case "darwin":
+      params.isLinux = true;
+      break;
+    case "win32":
+      params.isWindow = true;
+      break;
   }
-})("/Users/xmly/Study/code/swell-node-core/src/utils/platform.ts");
+  return params;
+};
+const getRightPath = (paths) => {
+  const slash = getSlash();
+  return paths.map((path) => path.replaceAll("/", slash));
+};
+const getSlash = function() {
+  const { isWindow } = getPlatform();
+  return isWindow ? "\\" : "/";
+};
 
-export const getPlatform = _module.getPlatform;
+export { getPlatform, getRightPath, getSlash };
