@@ -1,5 +1,6 @@
 import fs from "fs/promises";
 import { findDirFolders } from "./findDirFolders";
+import { getRightPath } from '../../utils/platform';
 
 jest.mock("fs/promises", () => ({
   readdir: jest.fn(),
@@ -52,9 +53,9 @@ describe("findDirFolders", () => {
     });
 
     const list = await findDirFolders("path1", "node_modules");
-    expect(list).toEqual(["path1/node_modules", "path1/node_modules"]);
+    expect(list).toEqual(getRightPath(["path1/node_modules", "path1/node_modules"]));
 
     const list2 = await findDirFolders("path2", ["test", "test2"]);
-    expect(list2).toEqual(["path2/test", "path2/test2"]);
+    expect(list2).toEqual(getRightPath(["path2/test", "path2/test2"]));
   });
 });

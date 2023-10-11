@@ -16,3 +16,14 @@ export const getPlatform = function () {
   }
   return params;
 };
+
+export const getRightPath = (paths: string[]) => {
+  const slash = getSlash()
+  return paths.map(path => path.replaceAll('/', slash))
+}
+
+export const getSlash = function () {
+  const { isWindow } = getPlatform()
+
+  return isWindow ? '\\' : '/'
+}
