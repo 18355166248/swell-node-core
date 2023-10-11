@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/18355166248/swell-node-core/compare/v1.1.0...v1.2.0) (2023-10-11)
+
+
+### Features
+
+* 更新lock ([e2aa5f9](https://github.com/18355166248/swell-node-core/commit/e2aa5f9f1c23b2af00604c7a260e8f34f8336478))
+* 修改rm命令 ([8559fe6](https://github.com/18355166248/swell-node-core/commit/8559fe62fc235e589819fb89491cfed278bfee29))
+
 ## 1.1.0 (2023-10-11)
 
 
