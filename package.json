@@ -1,13 +1,14 @@
 {
   "name": "swell-node-core",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "",
   "types": "./bin/index.d.ts",
   "scripts": {
     "preInstall": "npx only-allow pnpm",
     "build": "unbuild",
     "build:watch": "unbuild --stub",
-    "test": "jest"
+    "test": "jest",
+    "release": "standard-version"
   },
   "bin": {
     "snc": "bin/bin.mjs"
@@ -33,6 +34,7 @@
     "@types/jest": "^29.5.5",
     "@types/node": "^20.8.4",
     "jest": "^29.7.0",
+    "standard-version": "^9.5.0",
     "ts-jest": "^29.1.1",
     "unbuild": "^2.0.0"
   }
