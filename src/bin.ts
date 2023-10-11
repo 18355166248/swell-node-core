@@ -15,7 +15,7 @@ if (!process.argv.slice(2).length || process.argv.slice(2)[0] === "--help") {
 
 // 配置批量删除文件夹命令
 program
-  .command("rimraf [dir-name]")
+  .command("rm [dir-name]")
   .description("删除文件夹下所有的文件夹( 默认是 node_modules )")
   .action((dirName, cmd) => {
     // 输入参数校验

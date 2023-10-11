@@ -7,14 +7,14 @@ import 'fs/promises';
 import 'node:child_process';
 import 'cli-table';
 
-const version = "1.0.0";
+const version = "1.1.0";
 
 const program = new Command();
 program.version(version, "-v, --version,").usage("<command> [options]");
 if (!process.argv.slice(2).length || process.argv.slice(2)[0] === "--help") {
   program.outputHelp();
 }
-program.command("rimraf [dir-name]").description("\u5220\u9664\u6587\u4EF6\u5939\u4E0B\u6240\u6709\u7684\u6587\u4EF6\u5939( \u9ED8\u8BA4\u662F node_modules )").action((dirName, cmd) => {
+program.command("rm [dir-name]").description("\u5220\u9664\u6587\u4EF6\u5939\u4E0B\u6240\u6709\u7684\u6587\u4EF6\u5939( \u9ED8\u8BA4\u662F node_modules )").action((dirName, cmd) => {
   validateArgsLen(process.argv.length, 4);
   rmDir(dirName);
 });
