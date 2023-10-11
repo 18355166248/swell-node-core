@@ -9,8 +9,8 @@ export default defineBuildConfig({
   // Generates .d.ts declaration file
   declaration: true,
   rollup: {
-    // emitCJS: true,
-    // cjsBridge: true,
+    emitCJS: true,
+    cjsBridge: true,
     esbuild: {
       // minify: true,
     },
