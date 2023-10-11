@@ -7,7 +7,8 @@ module.exports = {
   },
   testRegex: "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
   moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
-  // setupFilesAfterEnv: ["<rootDir>/scripts/testSetup.js"],
+  setupFilesAfterEnv: ["<rootDir>/scripts/setup-jest.js"],
   collectCoverage: true,
   collectCoverageFrom: ["!/node_modules/", "!build/", "src/**/*.ts"],
+  coveragePathIgnorePatterns: ["src/bin.ts"],
 };

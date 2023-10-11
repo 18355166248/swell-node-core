@@ -1,8 +1,7 @@
 import os from "os";
 
-const platform = os.platform();
-
 export const getPlatform = function () {
+  const platform = os.platform();
   const params = {
     isLinux: false,
     isWindow: false,

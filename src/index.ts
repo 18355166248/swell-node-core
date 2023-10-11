@@ -1,3 +1,3 @@
-import * as rimrafDir from "./rimraf";
+import * as rmDir from "./rm";
 
-export { rimrafDir };
+export { rmDir };

@@ -10,7 +10,7 @@ import { generateTable } from "./utils/generateTable";
 const cwd = process.cwd();
 const dirName = path.resolve(cwd);
 
-export async function rimrafDir(name = "node_modules") {
+export async function rmDir(name = "node_modules") {
   const spinner = ora(`删除 ${name} 中`).start();
 
   try {
@@ -19,20 +19,19 @@ export async function rimrafDir(name = "node_modules") {
     if (dirs.length === 0) {
       console.log(chalk.yellow(`\r😖 ${dirName} 不存在 ${name}`));
       process.exit();
-      return;
     }
 
     const { entires, totalSize } = calculateSizeDirs({ dirs });
 
     await deleteFolders(dirs, name);
 
-    setTimeout(() => {
+    await setTimeout(() => {
       spinner.succeed(chalk.green("删除成功"));
       generateTable({ entires, totalSize });
     }, 500);
   } catch (error) {
-    spinner.fail(`删除失败 => ${chalk.redBright(error)}`);
+    spinner.fail(`${chalk.red("删除失败 => ")}${chalk.redBright(error)}`);
   } finally {
-    // spinner.stop();
+    spinner.stop();
   }
 }

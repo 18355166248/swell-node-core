@@ -1,6 +1,6 @@
 import { Command } from "commander"; // 命令行工具
 import { version } from "../package.json";
-import { rimrafDir } from "./rimraf";
+import { rmDir } from "./rm";
 import chalk from "chalk";
 
 const program = new Command();
@@ -20,7 +20,7 @@ program
   .action((dirName, cmd) => {
     // 输入参数校验
     validateArgsLen(process.argv.length, 4);
-    rimrafDir(dirName);
+    rmDir(dirName);
   });
 
 // 把命令行参数提供给 commander 解析
