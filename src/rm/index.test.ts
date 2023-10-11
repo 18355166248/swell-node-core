@@ -1,7 +1,7 @@
-import { rmDir } from ".";
 import chalk from "chalk";
-import { findDirFolders } from "./utils/findDirFolders";
 import path from "path";
+import { rmDir } from "./index";
+import { findDirFolders } from "./utils/findDirFolders";
 import { calculateSizeDirs } from "./utils/calculateSizeDirs";
 import { deleteFolders } from "./utils/deleteFolders";
 import { generateTable } from "./utils/generateTable";

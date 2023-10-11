@@ -36,6 +36,10 @@ describe("findDirFolders", () => {
               name: "test2",
             },
             {
+              isDirectory: () => true,
+              name: "test3",
+            },
+            {
               isDirectory: () => false,
               name: "test3",
             },

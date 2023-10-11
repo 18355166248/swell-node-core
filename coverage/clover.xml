@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1697023101432" clover="3.2.0">
-  <project timestamp="1697023101432" name="All files">
-    <metrics statements="92" coveredstatements="80" conditionals="9" coveredconditionals="8" methods="13" coveredmethods="12" elements="114" coveredelements="100" complexity="0" loc="92" ncloc="92" packages="4" files="9" classes="9"/>
+<coverage generated="1697023874612" clover="3.2.0">
+  <project timestamp="1697023874612" name="All files">
+    <metrics statements="92" coveredstatements="81" conditionals="9" coveredconditionals="9" methods="13" coveredmethods="12" elements="114" coveredelements="102" complexity="0" loc="92" ncloc="92" packages="4" files="9" classes="9"/>
     <package name="src">
       <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="index.ts" path="/Users/xmly/Study/code/swell-node-core/src/index.ts">
@@ -40,7 +40,7 @@
       </file>
     </package>
     <package name="src.rm.utils">
-      <metrics statements="57" coveredstatements="47" conditionals="5" coveredconditionals="4" methods="10" coveredmethods="9"/>
+      <metrics statements="57" coveredstatements="48" conditionals="5" coveredconditionals="5" methods="10" coveredmethods="9"/>
       <file name="calculateSizeDirs.ts" path="/Users/xmly/Study/code/swell-node-core/src/rm/utils/calculateSizeDirs.ts">
         <metrics statements="11" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
@@ -66,21 +66,21 @@
         <line num="8" count="2" type="stmt"/>
       </file>
       <file name="findDirFolders.ts" path="/Users/xmly/Study/code/swell-node-core/src/rm/utils/findDirFolders.ts">
-        <metrics statements="15" coveredstatements="14" conditionals="4" coveredconditionals="3" methods="3" coveredmethods="3"/>
+        <metrics statements="15" coveredstatements="15" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3"/>
         <line num="1" count="2" type="stmt"/>
         <line num="2" count="2" type="stmt"/>
         <line num="5" count="2" type="stmt"/>
         <line num="9" count="2" type="stmt"/>
-        <line num="12" count="2" type="stmt"/>
-        <line num="14" count="2" type="stmt"/>
-        <line num="15" count="6" type="cond" truecount="1" falsecount="0"/>
-        <line num="16" count="4" type="cond" truecount="1" falsecount="1"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="14" count="3" type="stmt"/>
+        <line num="15" count="7" type="cond" truecount="1" falsecount="0"/>
+        <line num="16" count="5" type="cond" truecount="2" falsecount="0"/>
         <line num="17" count="4" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
         <line num="25" count="2" type="stmt"/>
         <line num="26" count="2" type="stmt"/>
-        <line num="30" count="4" type="cond" truecount="1" falsecount="0"/>
-        <line num="31" count="2" type="stmt"/>
+        <line num="30" count="5" type="cond" truecount="1" falsecount="0"/>
+        <line num="31" count="3" type="stmt"/>
         <line num="33" count="2" type="stmt"/>
       </file>
       <file name="generateTable.ts" path="/Users/xmly/Study/code/swell-node-core/src/rm/utils/generateTable.ts">
