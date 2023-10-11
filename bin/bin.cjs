@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 'use strict';
 
 const commander = require('commander');
@@ -13,7 +14,7 @@ function _interopDefaultCompat (e) { return e && typeof e === 'object' && 'defau
 
 const chalk__default = /*#__PURE__*/_interopDefaultCompat(chalk);
 
-const version = "1.2.0";
+const version = "1.3.0";
 
 const program = new commander.Command();
 program.version(version, "-v, --version,").usage("<command> [options]");

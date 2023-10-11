@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import { Command } from 'commander';
 import { r as rmDir } from './shared/swell-node-core.4aa3a911.mjs';
 import chalk from 'chalk';
@@ -7,7 +8,7 @@ import 'fs/promises';
 import 'node:child_process';
 import 'cli-table';
 
-const version = "1.2.0";
+const version = "1.3.0";
 
 const program = new Command();
 program.version(version, "-v, --version,").usage("<command> [options]");
