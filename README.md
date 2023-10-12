@@ -18,7 +18,7 @@ snc rm
 snc rm [文件夹名]
 ```
 
-<img src="./swell-node-core-rm.gif">
+<img src="https://github.com/18355166248/swell-node-core/blob/main/swell-node-core-rm.gif">
 
 ## 本地开发
 
