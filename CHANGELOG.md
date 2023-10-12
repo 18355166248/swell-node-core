@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.7.0](https://github.com/18355166248/swell-node-core/compare/v1.3.1...v1.7.0) (2023-10-12)
+
+
+### Features
+
+* 更新打包 ([d59fb81](https://github.com/18355166248/swell-node-core/commit/d59fb813b4906107c219af35f55794fd17c8ae03))
+* 更新图片地址 ([c57affd](https://github.com/18355166248/swell-node-core/commit/c57affd67c602e87b48962120dc8cc017650f258))
+* 更新readme ([a3c5e38](https://github.com/18355166248/swell-node-core/commit/a3c5e38ea23d9067df268644ec9a18c0a0882c15))
+* 删除cjs配置 ([f80db6e](https://github.com/18355166248/swell-node-core/commit/f80db6e3a5adac36ee44d0a569f197beeb839282))
+* 优化支持window ([a7e2d43](https://github.com/18355166248/swell-node-core/commit/a7e2d43843a8f1260575fbf653de982278f57931))
+* cli 支持node命令 ([031917c](https://github.com/18355166248/swell-node-core/commit/031917c715d4cc46c39f14782971fdb3d6258036))
+
 ## [1.6.0](https://github.com/18355166248/swell-node-core/compare/v1.5.0...v1.6.0) (2023-10-12)
 
 
