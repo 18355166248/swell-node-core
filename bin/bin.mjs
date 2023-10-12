@@ -8,7 +8,7 @@ import 'fs/promises';
 import 'node:child_process';
 import 'cli-table';
 
-const version = "1.4.1";
+const version = "1.6.0";
 
 const program = new Command();
 program.version(version, "-v, --version,").usage("<command> [options]");
