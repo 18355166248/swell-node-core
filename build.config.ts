@@ -9,8 +9,8 @@ export default defineBuildConfig({
   // Generates .d.ts declaration file
   declaration: true,
   rollup: {
-    emitCJS: true,
-    cjsBridge: true,
+    // emitCJS: true, // 不支持cjs 因为 chalk这种第三方依赖的版本只支持esm
+    // cjsBridge: true,
     esbuild: {
       // minify: true,
     },
