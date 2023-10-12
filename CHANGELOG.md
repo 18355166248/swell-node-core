@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.6.0](https://github.com/18355166248/swell-node-core/compare/v1.5.0...v1.6.0) (2023-10-12)
+
+
+### Features
+
+* 更新图片地址 ([c57affd](https://github.com/18355166248/swell-node-core/commit/c57affd67c602e87b48962120dc8cc017650f258))
+* 更新readme ([a3c5e38](https://github.com/18355166248/swell-node-core/commit/a3c5e38ea23d9067df268644ec9a18c0a0882c15))
+
 ## [1.5.0](https://github.com/18355166248/swell-node-core/compare/v1.4.1...v1.5.0) (2023-10-12)
 
 
