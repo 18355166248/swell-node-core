@@ -10,10 +10,11 @@ import { generateTable } from "./utils/generateTable";
 const cwd = process.cwd();
 const dirName = path.resolve(cwd);
 
-export async function rmDir(name = "node_modules") {
+export async function rmDir (name = "node_modules") {
   const spinner = ora(`删除 ${name} 中`).start();
 
   try {
+    // 递归查询所有符合标准的文件夹路径
     const dirs = await findDirFolders(dirName, name);
 
     if (dirs.length === 0) {
@@ -21,12 +22,14 @@ export async function rmDir(name = "node_modules") {
       process.exit();
     }
 
+    // 查询需要删除的文件夹大小和总大小
     const { entires, totalSize } = calculateSizeDirs({ dirs });
-
+    // 异步执行删除文件夹
     await deleteFolders(dirs, name);
 
     await setTimeout(() => {
       spinner.succeed(chalk.green("删除成功"));
+      // 基于需要删除的文件夹大小和总大小生成表格
       generateTable({ entires, totalSize });
     }, 500);
   } catch (error) {
