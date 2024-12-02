@@ -10,7 +10,7 @@ export function swaggerToTs() {
     input: path.resolve(process.cwd(), "./src/swaggerToTs/swagger.json"),
     output: outputDir,
     modular: true,
-    templates: path.resolve(__dirname, "./src/swaggerToTs/templates"),
+    templates: path.resolve(process.cwd(), "./src/swaggerToTs/templates"),
     httpClientType: "axios", // or "fetch"
     generateRouteTypes: true,
   });
