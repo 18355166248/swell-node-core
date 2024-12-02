@@ -1,7 +1,13 @@
-export { i as rmDir } from './shared/swell-node-core.4aa3a911.mjs';
-import 'chalk';
-import 'ora';
-import 'path';
-import 'fs/promises';
-import 'node:child_process';
-import 'cli-table';
+import jiti from "file:///Users/xmly/Swell/code/swell-node-core/node_modules/.pnpm/jiti@1.20.0/node_modules/jiti/lib/index.js";
+
+/** @type {import("/Users/xmly/Swell/code/swell-node-core/src/index")} */
+const _module = jiti(null, {
+  "esmResolve": true,
+  "interopDefault": true,
+  "alias": {
+    "swell-node-core": "/Users/xmly/Swell/code/swell-node-core"
+  }
+})("/Users/xmly/Swell/code/swell-node-core/src/index.ts");
+
+export const rmDir = _module.rmDir;
+export const swaggerToTs = _module.swaggerToTs;

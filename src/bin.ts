@@ -3,6 +3,7 @@
 import { Command } from "commander"; // 命令行工具
 import { version } from "../package.json";
 import { rmDir } from "./rm";
+import { swaggerToTs } from "./swaggerToTs";
 import chalk from "chalk";
 
 const program = new Command();
@@ -25,10 +26,17 @@ program
     rmDir(dirName);
   });
 
+program
+  .command("stt")
+  .description("swaggerToTs")
+  .action((dirName, cmd) => {
+    swaggerToTs();
+  });
+
 // 把命令行参数提供给 commander 解析
 program.parse(process.argv);
 
-function validateArgsLen (argLen: number, MaxArgLength: number) {
+function validateArgsLen(argLen: number, MaxArgLength: number) {
   if (argLen > MaxArgLength) {
     console.log(chalk.yellow("\n 提示: 参数超过期望长度, 多余参数自动忽略"));
   }

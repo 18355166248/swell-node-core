@@ -39,3 +39,11 @@ pnpm unlink --global swell-node-core
 ```
 
 这样就可以本地使用 snc 命令了
+
+使用的时候前面要带 pnpm
+
+```shell
+pnpm snc rm
+pnpm snv -v
+pnpm snc stt
+```
