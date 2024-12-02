@@ -1,13 +1,13 @@
-import jiti from "file:///Users/xmly/Swell/code/swell-node-core/node_modules/.pnpm/jiti@1.20.0/node_modules/jiti/lib/index.js";
+import jiti from "file:///F:/FrontEnd/Code/swell-node-core/node_modules/.pnpm/jiti@1.20.0/node_modules/jiti/lib/index.js";
 
-/** @type {import("/Users/xmly/Swell/code/swell-node-core/src/utils/platform")} */
+/** @type {import("F:/FrontEnd/Code/swell-node-core/src/utils/platform")} */
 const _module = jiti(null, {
   "esmResolve": true,
   "interopDefault": true,
   "alias": {
-    "swell-node-core": "/Users/xmly/Swell/code/swell-node-core"
+    "swell-node-core": "F:/FrontEnd/Code/swell-node-core"
   }
-})("/Users/xmly/Swell/code/swell-node-core/src/utils/platform.ts");
+})("F:/FrontEnd/Code/swell-node-core/src/utils/platform.ts");
 
 export const getPlatform = _module.getPlatform;
 export const getRightPath = _module.getRightPath;

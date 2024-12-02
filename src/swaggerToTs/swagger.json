@@ -1,0 +1,768 @@
+{
+  "swagger": "2.0",
+  "info": {
+      "description": "business-pay-marketing-admin-web",
+      "version": "1.0",
+      "title": "business-pay-marketing-admin-web",
+      "contact": {}
+  },
+  "host": "ops.test.ximalaya.com",
+  "basePath": "/business-pay-marketing-admin-web",
+  "tags": [
+      {
+          "name": "login-controller",
+          "description": "Login Controller"
+      },
+      {
+          "name": "marketing-rule-controller",
+          "description": "Marketing Rule Controller"
+      }
+  ],
+  "paths": {
+      "/api/marketing_rule/batchAddMarketingRuleProducts": {
+          "post": {
+              "tags": [
+                  "marketing-rule-controller"
+              ],
+              "summary": "批量新增商品绑定",
+              "operationId": "batchAddMarketingRuleProductsUsingPOST",
+              "consumes": [
+                  "application/json"
+              ],
+              "produces": [
+                  "*/*"
+              ],
+              "parameters": [
+                  {
+                      "in": "body",
+                      "name": "req",
+                      "description": "req",
+                      "required": true,
+                      "schema": {
+                          "$ref": "#/definitions/BatchAddMarketingRuleProductReqVo"
+                      }
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "OK",
+                      "schema": {
+                          "$ref": "#/definitions/CommonResponse«Void»"
+                      }
+                  },
+                  "201": {
+                      "description": "Created"
+                  },
+                  "401": {
+                      "description": "Unauthorized"
+                  },
+                  "403": {
+                      "description": "Forbidden"
+                  },
+                  "404": {
+                      "description": "Not Found"
+                  }
+              }
+          }
+      },
+      "/api/marketing_rule/changeMarketingRuleStatus": {
+          "post": {
+              "tags": [
+                  "marketing-rule-controller"
+              ],
+              "summary": "变更支付营销规则状态",
+              "operationId": "changeMarketingRuleStatusUsingPOST",
+              "consumes": [
+                  "application/json"
+              ],
+              "produces": [
+                  "*/*"
+              ],
+              "parameters": [
+                  {
+                      "in": "body",
+                      "name": "req",
+                      "description": "req",
+                      "required": true,
+                      "schema": {
+                          "$ref": "#/definitions/ChangeMarketingRuleStatusReqVo"
+                      }
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "OK",
+                      "schema": {
+                          "$ref": "#/definitions/CommonResponse«Void»"
+                      }
+                  },
+                  "201": {
+                      "description": "Created"
+                  },
+                  "401": {
+                      "description": "Unauthorized"
+                  },
+                  "403": {
+                      "description": "Forbidden"
+                  },
+                  "404": {
+                      "description": "Not Found"
+                  }
+              }
+          }
+      },
+      "/api/marketing_rule/changeProductRuleRelationStatus": {
+          "post": {
+              "tags": [
+                  "marketing-rule-controller"
+              ],
+              "summary": "变更商品绑定状态",
+              "operationId": "changeProductRuleRelationStatusUsingPOST",
+              "consumes": [
+                  "application/json"
+              ],
+              "produces": [
+                  "*/*"
+              ],
+              "parameters": [
+                  {
+                      "in": "body",
+                      "name": "req",
+                      "description": "req",
+                      "required": true,
+                      "schema": {
+                          "$ref": "#/definitions/ChangeProductRuleRelationStatusReqVo"
+                      }
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "OK",
+                      "schema": {
+                          "$ref": "#/definitions/CommonResponse«Void»"
+                      }
+                  },
+                  "201": {
+                      "description": "Created"
+                  },
+                  "401": {
+                      "description": "Unauthorized"
+                  },
+                  "403": {
+                      "description": "Forbidden"
+                  },
+                  "404": {
+                      "description": "Not Found"
+                  }
+              }
+          }
+      },
+      "/api/marketing_rule/createMarketingRule": {
+          "post": {
+              "tags": [
+                  "marketing-rule-controller"
+              ],
+              "summary": "创建支付营销规则",
+              "operationId": "createMarketingRuleUsingPOST",
+              "consumes": [
+                  "application/json"
+              ],
+              "produces": [
+                  "*/*"
+              ],
+              "parameters": [
+                  {
+                      "in": "body",
+                      "name": "ruleReq",
+                      "description": "ruleReq",
+                      "required": true,
+                      "schema": {
+                          "$ref": "#/definitions/CreateMarketingRuleRequestVo"
+                      }
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "OK",
+                      "schema": {
+                          "$ref": "#/definitions/CommonResponse«string»"
+                      }
+                  },
+                  "201": {
+                      "description": "Created"
+                  },
+                  "401": {
+                      "description": "Unauthorized"
+                  },
+                  "403": {
+                      "description": "Forbidden"
+                  },
+                  "404": {
+                      "description": "Not Found"
+                  }
+              }
+          }
+      },
+      "/api/marketing_rule/getMarketingRuleProducts": {
+          "post": {
+              "tags": [
+                  "marketing-rule-controller"
+              ],
+              "summary": "查询营销规则绑定的商品列表",
+              "operationId": "getMarketingRuleProductsUsingPOST",
+              "consumes": [
+                  "application/json"
+              ],
+              "produces": [
+                  "*/*"
+              ],
+              "parameters": [
+                  {
+                      "in": "body",
+                      "name": "queryVo",
+                      "description": "queryVo",
+                      "required": true,
+                      "schema": {
+                          "$ref": "#/definitions/MarketingRuleQueryVo"
+                      }
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "OK",
+                      "schema": {
+                          "$ref": "#/definitions/CommonResponse«Page«MarketingRuleProductVo»»"
+                      }
+                  },
+                  "201": {
+                      "description": "Created"
+                  },
+                  "401": {
+                      "description": "Unauthorized"
+                  },
+                  "403": {
+                      "description": "Forbidden"
+                  },
+                  "404": {
+                      "description": "Not Found"
+                  }
+              }
+          }
+      },
+      "/api/marketing_rule/getMarketingRules": {
+          "post": {
+              "tags": [
+                  "marketing-rule-controller"
+              ],
+              "summary": "查询营销规则列表",
+              "operationId": "getMarketingRulesUsingPOST",
+              "consumes": [
+                  "application/json"
+              ],
+              "produces": [
+                  "*/*"
+              ],
+              "parameters": [
+                  {
+                      "in": "body",
+                      "name": "queryVo",
+                      "description": "queryVo",
+                      "required": true,
+                      "schema": {
+                          "$ref": "#/definitions/MarketingRuleQueryVo"
+                      }
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "OK",
+                      "schema": {
+                          "$ref": "#/definitions/CommonResponse«Page«MarketingRuleVo»»"
+                      }
+                  },
+                  "201": {
+                      "description": "Created"
+                  },
+                  "401": {
+                      "description": "Unauthorized"
+                  },
+                  "403": {
+                      "description": "Forbidden"
+                  },
+                  "404": {
+                      "description": "Not Found"
+                  }
+              }
+          }
+      },
+      "/api/marketing_rule/getProductItems": {
+          "post": {
+              "tags": [
+                  "marketing-rule-controller"
+              ],
+              "summary": "查询商品信息",
+              "operationId": "getProductItemsUsingPOST",
+              "consumes": [
+                  "application/json"
+              ],
+              "produces": [
+                  "*/*"
+              ],
+              "parameters": [
+                  {
+                      "in": "body",
+                      "name": "itemIds",
+                      "description": "itemIds",
+                      "required": true,
+                      "schema": {
+                          "type": "array",
+                          "items": {
+                              "type": "string"
+                          }
+                      }
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "OK",
+                      "schema": {
+                          "$ref": "#/definitions/CommonResponse«List«ProductItemVo»»"
+                      }
+                  },
+                  "201": {
+                      "description": "Created"
+                  },
+                  "401": {
+                      "description": "Unauthorized"
+                  },
+                  "403": {
+                      "description": "Forbidden"
+                  },
+                  "404": {
+                      "description": "Not Found"
+                  }
+              }
+          }
+      },
+      "/api/marketing_rule/updateMarketingRule": {
+          "post": {
+              "tags": [
+                  "marketing-rule-controller"
+              ],
+              "summary": "更新支付营销规则",
+              "operationId": "updateMarketingRuleUsingPOST",
+              "consumes": [
+                  "application/json"
+              ],
+              "produces": [
+                  "*/*"
+              ],
+              "parameters": [
+                  {
+                      "in": "body",
+                      "name": "ruleReq",
+                      "description": "ruleReq",
+                      "required": true,
+                      "schema": {
+                          "$ref": "#/definitions/UpdateMarketingRuleRequestVo"
+                      }
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "OK",
+                      "schema": {
+                          "$ref": "#/definitions/CommonResponse«Void»"
+                      }
+                  },
+                  "201": {
+                      "description": "Created"
+                  },
+                  "401": {
+                      "description": "Unauthorized"
+                  },
+                  "403": {
+                      "description": "Forbidden"
+                  },
+                  "404": {
+                      "description": "Not Found"
+                  }
+              }
+          }
+      },
+      "/home/login": {
+          "get": {
+              "tags": [
+                  "login-controller"
+              ],
+              "summary": "登入",
+              "operationId": "loginUsingGET",
+              "produces": [
+                  "*/*"
+              ],
+              "parameters": [
+                  {
+                      "name": "redirect_uri",
+                      "in": "query",
+                      "description": "redirect_uri",
+                      "required": true,
+                      "type": "string"
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "OK"
+                  },
+                  "401": {
+                      "description": "Unauthorized"
+                  },
+                  "403": {
+                      "description": "Forbidden"
+                  },
+                  "404": {
+                      "description": "Not Found"
+                  }
+              }
+          }
+      }
+  },
+  "definitions": {
+      "BatchAddMarketingRuleProductReqVo": {
+          "type": "object",
+          "properties": {
+              "itemIds": {
+                  "type": "array",
+                  "items": {
+                      "type": "string"
+                  }
+              },
+              "ruleNo": {
+                  "type": "string"
+              }
+          },
+          "title": "BatchAddMarketingRuleProductReqVo"
+      },
+      "ChangeMarketingRuleStatusReqVo": {
+          "type": "object",
+          "properties": {
+              "ruleNo": {
+                  "type": "string"
+              },
+              "status": {
+                  "type": "string"
+              }
+          },
+          "title": "ChangeMarketingRuleStatusReqVo"
+      },
+      "ChangeProductRuleRelationStatusReqVo": {
+          "type": "object",
+          "properties": {
+              "itemId": {
+                  "type": "string"
+              },
+              "priority": {
+                  "type": "integer",
+                  "format": "int32"
+              },
+              "ruleNo": {
+                  "type": "string"
+              },
+              "status": {
+                  "type": "string"
+              }
+          },
+          "title": "ChangeProductRuleRelationStatusReqVo"
+      },
+      "CommonResponse«List«ProductItemVo»»": {
+          "type": "object",
+          "properties": {
+              "data": {
+                  "type": "array",
+                  "items": {
+                      "$ref": "#/definitions/ProductItemVo"
+                  }
+              },
+              "msg": {
+                  "type": "string"
+              },
+              "ret": {
+                  "type": "string"
+              }
+          },
+          "title": "CommonResponse«List«ProductItemVo»»"
+      },
+      "CommonResponse«Page«MarketingRuleProductVo»»": {
+          "type": "object",
+          "properties": {
+              "data": {
+                  "$ref": "#/definitions/Page«MarketingRuleProductVo»"
+              },
+              "msg": {
+                  "type": "string"
+              },
+              "ret": {
+                  "type": "string"
+              }
+          },
+          "title": "CommonResponse«Page«MarketingRuleProductVo»»"
+      },
+      "CommonResponse«Page«MarketingRuleVo»»": {
+          "type": "object",
+          "properties": {
+              "data": {
+                  "$ref": "#/definitions/Page«MarketingRuleVo»"
+              },
+              "msg": {
+                  "type": "string"
+              },
+              "ret": {
+                  "type": "string"
+              }
+          },
+          "title": "CommonResponse«Page«MarketingRuleVo»»"
+      },
+      "CommonResponse«Void»": {
+          "type": "object",
+          "properties": {
+              "msg": {
+                  "type": "string"
+              },
+              "ret": {
+                  "type": "string"
+              }
+          },
+          "title": "CommonResponse«Void»"
+      },
+      "CommonResponse«string»": {
+          "type": "object",
+          "properties": {
+              "data": {
+                  "type": "string"
+              },
+              "msg": {
+                  "type": "string"
+              },
+              "ret": {
+                  "type": "string"
+              }
+          },
+          "title": "CommonResponse«string»"
+      },
+      "CreateMarketingRuleRequestVo": {
+          "type": "object",
+          "properties": {
+              "calcRuleContent": {
+                  "type": "string"
+              },
+              "externalRuleNo": {
+                  "type": "string"
+              },
+              "filterRuleContent": {
+                  "type": "string"
+              },
+              "marketingMode": {
+                  "type": "string"
+              },
+              "ruleDesc": {
+                  "type": "string"
+              },
+              "ruleName": {
+                  "type": "string"
+              },
+              "ruleType": {
+                  "type": "integer",
+                  "format": "int32"
+              }
+          },
+          "title": "CreateMarketingRuleRequestVo"
+      },
+      "MarketingRuleProductVo": {
+          "type": "object",
+          "properties": {
+              "itemId": {
+                  "type": "string"
+              },
+              "itemName": {
+                  "type": "string"
+              },
+              "priority": {
+                  "type": "integer",
+                  "format": "int32"
+              },
+              "productNo": {
+                  "type": "string"
+              },
+              "ruleNo": {
+                  "type": "string"
+              },
+              "status": {
+                  "type": "string"
+              },
+              "unitPrice": {
+                  "type": "string"
+              }
+          },
+          "title": "MarketingRuleProductVo"
+      },
+      "MarketingRuleQueryVo": {
+          "type": "object",
+          "properties": {
+              "pageNo": {
+                  "type": "integer",
+                  "format": "int32"
+              },
+              "pageSize": {
+                  "type": "integer",
+                  "format": "int32"
+              },
+              "ruleName": {
+                  "type": "string"
+              },
+              "ruleNo": {
+                  "type": "string"
+              },
+              "ruleType": {
+                  "type": "integer",
+                  "format": "int32"
+              }
+          },
+          "title": "MarketingRuleQueryVo"
+      },
+      "MarketingRuleVo": {
+          "type": "object",
+          "properties": {
+              "calcRuleContent": {
+                  "type": "string"
+              },
+              "calcRuleNo": {
+                  "type": "string"
+              },
+              "externalRuleNo": {
+                  "type": "string"
+              },
+              "filterRuleContent": {
+                  "type": "string"
+              },
+              "filterRuleNo": {
+                  "type": "string"
+              },
+              "marketingMode": {
+                  "type": "string"
+              },
+              "ruleDesc": {
+                  "type": "string"
+              },
+              "ruleName": {
+                  "type": "string"
+              },
+              "ruleNo": {
+                  "type": "string"
+              },
+              "ruleType": {
+                  "type": "integer",
+                  "format": "int32"
+              },
+              "status": {
+                  "type": "string"
+              }
+          },
+          "title": "MarketingRuleVo"
+      },
+      "Page«MarketingRuleProductVo»": {
+          "type": "object",
+          "properties": {
+              "empty": {
+                  "type": "boolean"
+              },
+              "items": {
+                  "type": "array",
+                  "items": {
+                      "$ref": "#/definitions/MarketingRuleProductVo"
+                  }
+              },
+              "pageNum": {
+                  "type": "integer",
+                  "format": "int32"
+              },
+              "pageSize": {
+                  "type": "integer",
+                  "format": "int32"
+              },
+              "pages": {
+                  "type": "integer",
+                  "format": "int32"
+              },
+              "total": {
+                  "type": "integer",
+                  "format": "int32"
+              }
+          },
+          "title": "Page«MarketingRuleProductVo»"
+      },
+      "Page«MarketingRuleVo»": {
+          "type": "object",
+          "properties": {
+              "empty": {
+                  "type": "boolean"
+              },
+              "items": {
+                  "type": "array",
+                  "items": {
+                      "$ref": "#/definitions/MarketingRuleVo"
+                  }
+              },
+              "pageNum": {
+                  "type": "integer",
+                  "format": "int32"
+              },
+              "pageSize": {
+                  "type": "integer",
+                  "format": "int32"
+              },
+              "pages": {
+                  "type": "integer",
+                  "format": "int32"
+              },
+              "total": {
+                  "type": "integer",
+                  "format": "int32"
+              }
+          },
+          "title": "Page«MarketingRuleVo»"
+      },
+      "ProductItemVo": {
+          "type": "object",
+          "properties": {
+              "itemId": {
+                  "type": "string"
+              },
+              "itemName": {
+                  "type": "string"
+              },
+              "unitPrice": {
+                  "type": "string"
+              }
+          },
+          "title": "ProductItemVo"
+      },
+      "UpdateMarketingRuleRequestVo": {
+          "type": "object",
+          "properties": {
+              "ruleDesc": {
+                  "type": "string"
+              },
+              "ruleName": {
+                  "type": "string"
+              },
+              "ruleNo": {
+                  "type": "string"
+              },
+              "ruleType": {
+                  "type": "integer",
+                  "format": "int32"
+              }
+          },
+          "title": "UpdateMarketingRuleRequestVo"
+      }
+  }
+}
