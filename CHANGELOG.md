@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.9.0](https://github.com/18355166248/swell-node-core/compare/v1.8.0...v1.9.0) (2025-01-24)
+
+
+### Features
+
+* 打包 ([bac70e4](https://github.com/18355166248/swell-node-core/commit/bac70e4bc589e3f4ca66f52e17b47b72d662f730))
+
 ## 1.8.0 (2025-01-24)
 
 
