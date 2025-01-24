@@ -12,7 +12,7 @@ import 'swagger-typescript-api';
 import 'child_process';
 import '@inquirer/prompts';
 
-const version = "1.7.0";
+const version = "1.8.0";
 
 const program = new Command();
 program.version(version, "-v, --version,").usage("<command> [options]");
