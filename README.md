@@ -47,3 +47,6 @@ pnpm snc rm
 pnpm snv -v
 pnpm snc stt
 ```
+
+在开发包中 pnpm link --global 将当前包 link 到全局 node_modules 中
+在常规项目中 pnpm link --global @xxx 即可 【这里的 @xxx 一定是开发包中的 package.json 中的 name】

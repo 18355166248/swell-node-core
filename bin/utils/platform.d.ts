@@ -1,1 +1,1 @@
-export * from "F:/FrontEnd/Code/swell-node-core/src/utils/platform";
+export * from "/Users/xmly/Swell/code/swell-node-core/src/utils/platform";

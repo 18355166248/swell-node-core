@@ -5,6 +5,7 @@ import { version } from "../package.json";
 import { rmDir } from "./rm";
 import { swaggerToTs } from "./swaggerToTs";
 import chalk from "chalk";
+import { changesetPrereleasesPublish, changesetPublish } from "./changesetCore";
 
 const program = new Command();
 
@@ -31,6 +32,18 @@ program
   .description("swaggerToTs")
   .action((dirName, cmd) => {
     swaggerToTs();
+  });
+
+program
+  .command("cp")
+  .description("changesetPublish")
+  .action((dirName, cmd) => {
+    const args = cmd.args;
+    if (args.length > 0 && args[0] === "pre") {
+      changesetPrereleasesPublish();
+    } else {
+      changesetPublish();
+    }
   });
 
 // 把命令行参数提供给 commander 解析
