@@ -1,6 +1,6 @@
 {
   "name": "swell-node-core",
-  "version": "1.10.0",
+  "version": "1.10.1",
   "description": "",
   "types": "./bin/index.d.ts",
   "scripts": {
