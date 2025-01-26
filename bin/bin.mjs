@@ -14,7 +14,7 @@ import 'util';
 import '@inquirer/prompts';
 import 'fs';
 
-const version = "1.9.2";
+const version = "1.10.1";
 
 const program = new Command();
 program.version(version, "-v, --version,").usage("<command> [options]");
