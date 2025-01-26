@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.10.0](https://github.com/18355166248/swell-node-core/compare/v1.9.1...v1.10.0) (2025-01-26)
+
+
+### Features
+
+* 更新打包 ([46c87fa](https://github.com/18355166248/swell-node-core/commit/46c87fac65d2cb4eb0f8b352c45553f67a3c8a30))
+* 新增publish后自动提取message, 自动git push ([b32aa30](https://github.com/18355166248/swell-node-core/commit/b32aa30a4262837f63820cab3fd7d21def71d256))
+
 ### [1.9.1](https://github.com/18355166248/swell-node-core/compare/v1.9.0...v1.9.1) (2025-01-24)
 
 ## [1.9.0](https://github.com/18355166248/swell-node-core/compare/v1.8.0...v1.9.0) (2025-01-24)
