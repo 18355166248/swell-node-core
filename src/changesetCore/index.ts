@@ -1,23 +1,40 @@
 import chalk from "chalk";
 import { spawn } from "child_process";
+import { promisify } from "util";
+import { exec as execCallback } from "child_process";
 import { check_pnpm } from "../utils/check-env";
-import { confirm } from "@inquirer/prompts";
+import { confirm, input } from "@inquirer/prompts";
+import { errorLog } from "../utils/error";
+import { readFileSync, readdirSync } from "fs";
+import { join } from "path";
+
+const exec = promisify(execCallback);
 
 export async function changesetPublish() {
-  await changeset();
-  await changesetVersion();
-  await _changesetPublish();
-  console.log();
-  console.log(chalk.green(" 🎉 publish success 🎉 "));
-  console.log();
+  try {
+    await changeset();
+    const commitMessage = await generateCommitMessage();
+    console.log("commitMessage", commitMessage);
+    await changesetVersion();
+    await _changesetPublish();
+    await gitPush(commitMessage);
+    console.log();
+    console.log(chalk.green(" 🎉 publish success 🎉 "));
+    console.log();
+  } catch (error) {
+    errorLog("Error in changeset publish process:", error);
+    process.exit(1);
+  }
 }
 
 export async function changesetPrereleasesPublish() {
   await changeset();
+  const commitMessage = await generateCommitMessage();
   await changesetPrereleases();
   await changesetVersion();
   await changePreExit();
   await _changesetPublish();
+  await gitPush(commitMessage);
   console.log();
   console.log(chalk.green(" 🎉 prereleases publish success 🎉 "));
   console.log();
@@ -45,7 +62,7 @@ async function changeset() {
         });
 
         changesetProcess.on("error", (err) => {
-          console.log("🚀 ~ changesetProcess.on ~ err:", err);
+          errorLog("Error executing changeset:", err);
           reject(err);
         });
       });
@@ -53,9 +70,10 @@ async function changeset() {
       console.log(
         chalk.red("pnpm version is too low, please upgrade to 8.10.0 or higher")
       );
+      process.exit(1);
     }
   } catch (error) {
-    console.error(chalk.red("Error executing changeset:"), error);
+    errorLog("Error executing changeset:", error);
     throw error;
   }
 }
@@ -83,12 +101,11 @@ async function changesetPrereleases() {
       });
 
       changesetPrereleasesProcess.on("error", (err) => {
-        console.log("🚀 ~ Changeset Prereleases process.on ~ err:", err);
         reject(err);
       });
     });
   } catch (error) {
-    console.error(chalk.red("Error executing changeset Prereleases:"), error);
+    errorLog("Error executing changeset Prereleases:", error);
     throw error;
   }
 }
@@ -120,7 +137,7 @@ async function changesetVersion() {
       });
     });
   } catch (error) {
-    console.error(chalk.red("Error executing changeset version:"), error);
+    errorLog("Error executing changeset version:", error);
     throw error;
   }
 }
@@ -161,11 +178,12 @@ async function _changesetPublish() {
       });
     });
   } catch (error) {
-    console.error(chalk.red("Error executing changeset publish:"), error);
+    errorLog("Error executing changeset publish: ", error);
     throw error;
   }
 }
 
+// 退出预发布
 async function changePreExit() {
   try {
     const changesetVersionProcess = spawn(
@@ -192,6 +210,94 @@ async function changePreExit() {
       });
     });
   } catch (error) {
-    console.error(chalk.red("Error executing changeset pre exit"), error);
+    errorLog("Error executing changeset pre exit", error);
+  }
+}
+
+// 从 .changeset 目录读取变更信息生成提交信息
+async function generateCommitMessage(): Promise<string | null> {
+  try {
+    const changesetDir = join(process.cwd(), ".changeset");
+
+    // 获取未提交的文件列表
+    const { stdout: untrackedFiles } = await exec(
+      "git ls-files --others --exclude-standard --full-name"
+    );
+
+    // 获取已修改但未提交的文件列表
+    // const { stdout: modifiedFiles } = await exec("git diff --name-only");
+
+    // 合并所有文件并过滤出 .changeset 目录下的 .md 文件（排除 README.md）
+    const allFiles = [
+      ...untrackedFiles.split("\n"),
+      // ...modifiedFiles.split("\n"),
+    ].filter(
+      (file) =>
+        file.startsWith(".changeset/") &&
+        file.endsWith(".md") &&
+        !file.endsWith("README.md")
+    );
+
+    if (allFiles.length === 0) {
+      return null;
+    }
+
+    let message = "";
+
+    for (const file of allFiles) {
+      let content = readFileSync(join(process.cwd(), file), "utf-8");
+      // 将文本中的所有换行符替换为空格
+      // 将多个连续的空白字符替换为一个空格
+      // 去掉字符串两端的空白字符
+      content = content.replace(/\r?\n/g, " ").replace(/\s\s+/g, " ").trim();
+      message += `${content}\n`;
+    }
+
+    return `chore(release): ${message.trim()}`;
+  } catch (error) {
+    errorLog("Error generating commit message:", error);
+    return null;
+  }
+}
+
+// 提交代码,并执行 git push
+async function gitPush(message: string | null) {
+  try {
+    if (!message) {
+      const answer = await input({
+        message: "git commit message: ",
+        required: true,
+        transformer: (input) => input.trim(),
+        validate: (input) => input.trim() !== "",
+      });
+      message = answer;
+    }
+    if (message.trim() === "") {
+      errorLog("", "git commit message is empty");
+      process.exit(1);
+    }
+    // 添加所有更改的文件
+    await exec("git add .");
+
+    console.log();
+    console.log(chalk.green("git commit message: \n"), chalk.yellow(message));
+
+    // 生成动态提交信息
+    await exec(`git commit -m "${message}"`);
+
+    // 获取当前分支名
+    const { stdout: branchName } = await exec(
+      "git rev-parse --abbrev-ref HEAD"
+    );
+
+    // 推送到远程仓库
+    await exec(`git push origin ${branchName.trim()}`);
+
+    console.log();
+    console.log(chalk.green("✨ Git changes pushed successfully"));
+    console.log();
+  } catch (error) {
+    errorLog("Error executing git operations:", error);
+    throw error;
   }
 }
